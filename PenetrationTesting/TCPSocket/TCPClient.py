@@ -5,7 +5,6 @@ clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = socket.gethostname()
 port = 8000
 
-# Wrap the socket with SSL and disable certificate verification
 context = ssl.create_default_context()
 context.check_hostname = False
 context.verify_mode = ssl.CERT_NONE
