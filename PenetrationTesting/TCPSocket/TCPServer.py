@@ -74,6 +74,8 @@ def create_server_socket(host, port, certfile=None, keyfile=None):
     
     if certfile and keyfile:
         context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        # Disable insecure TLS versions
+        context.minimum_version = ssl.TLSVersion.TLSv1_2
         context.load_cert_chain(certfile=certfile, keyfile=keyfile)
         serversocket = context.wrap_socket(serversocket, server_side=True)
     

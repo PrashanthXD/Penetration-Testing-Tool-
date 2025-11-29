@@ -19,6 +19,8 @@ def create_client_socket(host, port, use_ssl=True):
         context = ssl.create_default_context()
         context.check_hostname = False
         context.verify_mode = ssl.CERT_NONE
+        # Disable insecure TLS versions
+        context.minimum_version = ssl.TLSVersion.TLSv1_2
         clientsocket = context.wrap_socket(clientsocket, server_hostname=host)
     
     return clientsocket
