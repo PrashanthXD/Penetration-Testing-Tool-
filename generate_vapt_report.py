@@ -5,10 +5,8 @@ Generates a professional Vulnerability Assessment and Penetration Testing report
 """
 
 from docx import Document
-from docx.shared import Inches, Pt, RGBColor
+from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.table import WD_TABLE_ALIGNMENT
-from docx.enum.style import WD_STYLE_TYPE
 from datetime import datetime
 import os
 
