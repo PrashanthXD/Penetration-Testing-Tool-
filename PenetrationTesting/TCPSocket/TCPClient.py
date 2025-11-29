@@ -65,8 +65,7 @@ def run_client_interactive(host='127.0.0.1', port=8000):
         host: The server hostname (default: '127.0.0.1').
         port: The port number (default: 8000).
     """
-    hostname = socket.gethostname()
-    clientsocket = create_client_socket(hostname, port)
+    clientsocket = create_client_socket(host, port)
     connect_to_server(clientsocket, host, port)
     
     while True:

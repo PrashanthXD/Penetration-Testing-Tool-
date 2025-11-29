@@ -95,14 +95,18 @@ class TestBannerGrabberEdgeCases(unittest.TestCase):
     
     @patch('PenetrationTesting.BannerGrabber.bannergrabber.socket.socket')
     def test_grab_banner_empty_response(self, mock_socket_class):
-        """Test handling of empty banner response."""
+        """Test handling of empty banner response.
+        
+        Note: The grab_banner function converts bytes to string using str()
+        then strips 'b', resulting in "''" for empty byte strings.
+        """
         mock_socket = Mock()
         mock_socket_class.return_value = mock_socket
         mock_socket.recv.return_value = b''
         
         result = grab_banner('192.168.1.1', 80)
         
-        # str(b'') returns "b''" which stripped becomes "''"
+        # str(b'') returns "b''" which when strip('b') is applied becomes "''"
         self.assertEqual(result, "''")
     
     @patch('PenetrationTesting.BannerGrabber.bannergrabber.socket.socket')

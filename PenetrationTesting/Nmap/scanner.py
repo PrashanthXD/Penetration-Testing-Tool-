@@ -132,7 +132,7 @@ def main():
         comprehensive_scan(scanner, ip_address)
         print_scan_results(scanner, ip_address, 'tcp')
     else:
-        print("[!] Plesea, enter a valid type of scan option")
+        print("[!] Please, enter a valid type of scan option")
 
 
 if __name__ == "__main__":
